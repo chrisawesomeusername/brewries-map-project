@@ -1,0 +1,15 @@
+.logo{
+  img{
+    width: inherit;
+  }
+}
+.bg-img-container{
+  height: 50vh;
+}
+
+.bg-img{
+  opacity: 0.4;
+  height: 100%;
+  object-fit: cover;
+  max-width: 100vw;
+}

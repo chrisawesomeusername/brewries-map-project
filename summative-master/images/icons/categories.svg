@@ -1,0 +1,51 @@
+<<<<<<< HEAD
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<style type="text/css">
+	.st0{filter:url(#Adobe_OpacityMaskFilter);}
+	.st1{fill:#FFFFFF;}
+	.st2{mask:url(#mask-2);}
+	.st3{fill:#83838F;}
+</style>
+<title>icon/maps/category_24px_outlined</title>
+<desc>Created with Sketch.</desc>
+<g id="icon_x2F_maps_x2F_category_x5F_24px">
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+			<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+		</filter>
+	</defs>
+	<mask maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24" id="mask-2">
+		<g class="st0">
+			<path id="path-1" class="st1" d="M11.5,2L6,11h11L11.5,2z M11.5,5.8L13.4,9H9.6L11.5,5.8z M17,13c-2.5,0-4.5,2-4.5,4.5
+				s2,4.5,4.5,4.5s4.5-2,4.5-4.5S19.5,13,17,13z M17,20c-1.4,0-2.5-1.1-2.5-2.5S15.6,15,17,15s2.5,1.1,2.5,2.5S18.4,20,17,20z
+				 M2.5,21.5h8v-8h-8V21.5z M4.5,15.5h4v4h-4V15.5z"/>
+		</g>
+	</mask>
+	<g id="_x2731_-_x2F_-Color-_x2F_-Icons-_x2F_-Black-_x2F_-Inactive" class="st2">
+		<rect id="Rectangle" class="st3" width="24" height="24"/>
+	</g>
+</g>
+</svg>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54 (76480) - https://sketchapp.com -->
+    <title>icon/maps/category_24px_outlined</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M11.5,2 L6,11 L17,11 L11.5,2 Z M11.5,5.84 L13.43,9 L9.56,9 L11.5,5.84 Z M17,13 C14.51,13 12.5,15.01 12.5,17.5 C12.5,19.99 14.51,22 17,22 C19.49,22 21.5,19.99 21.5,17.5 C21.5,15.01 19.49,13 17,13 Z M17,20 C15.62,20 14.5,18.88 14.5,17.5 C14.5,16.12 15.62,15 17,15 C18.38,15 19.5,16.12 19.5,17.5 C19.5,18.88 18.38,20 17,20 Z M2.5,21.5 L10.5,21.5 L10.5,13.5 L2.5,13.5 L2.5,21.5 Z M4.5,15.5 L8.5,15.5 L8.5,19.5 L4.5,19.5 L4.5,15.5 Z" id="path-1"></path>
+    </defs>
+    <g id="icon/maps/category_24px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g fill-rule="nonzero"></g>
+        <g id="✱-/-Color-/-Icons-/-Black-/-Inactive" mask="url(#mask-2)" fill="#000000">
+            <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+        </g>
+    </g>
+</svg>
+>>>>>>> 83ab57e922a0cbb12a559078164cdcf1352fdeea
