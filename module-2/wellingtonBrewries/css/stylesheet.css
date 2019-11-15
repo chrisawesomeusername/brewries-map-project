@@ -1,0 +1,42 @@
+body{
+	background-color: #666666;
+}
+.bg-custom{
+	background: #abc;
+}
+.margin-auto{
+	margin: auto;
+	float: 0;
+}
+.jumbotron{
+	border-radius: 0;
+	margin: 0;
+}
+.container{
+	min-height: 45vh;
+	padding: 15px 5px;
+}
+.container p,h2,h3,h4,h5,h6{
+	color: #333;
+}
+.img-body{
+	width: auto;
+	height: 200px;
+	margin: auto;
+	display: block;
+}
+.img-body:hover{
+	height: 195px;
+	width: auto;
+	box-shadow: 2px 2px 15px grey;
+}
+h4{
+	padding: 15px 0;
+}
+.row{
+	margin: auto;
+}
+
+#mapContain{
+	height: 600px;
+}
