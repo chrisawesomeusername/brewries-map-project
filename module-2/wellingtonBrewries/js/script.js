@@ -7,6 +7,10 @@ var script = document.createElement('script');
 script.src = 'https://maps.googleapis.com/maps/api/js?key=' + myKey[0].key + '&callback=initMap';
 document.getElementsByTagName('body')[0].appendChild(script);//appending to the body of index html
 
+
+
+
+
 $(document).ready(function(){
 	  $('#area').change(function(){
 			console.log($('#area').val());
@@ -15,7 +19,8 @@ $(document).ready(function(){
 			// map.panTo({lat : -41.131073,lng : 175.067505});
 
 			for (var i = 0; i < brewries.length; i++) {
-				if ($('#area').val() = brewries[i].area){ break; } {
+				if ($('#area').val() === brewries[i].area) {
+					map.setZoom(14)
 					map.panTo(brewries[i].longAndLat);
 				}
 			}
