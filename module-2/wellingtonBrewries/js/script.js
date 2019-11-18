@@ -1,22 +1,51 @@
 console.log('Wellington Brewries');
 // Brewries locations
 var myKey = JSON.parse(apiKey);//convert json data into js object
+var map;//declaring map variable at the start of js to show it is a global variable
 
-
+//creating a script element dynamically to use the API key securely from the seperate JSON file
 var script = document.createElement('script');
 script.src = 'https://maps.googleapis.com/maps/api/js?key=' + myKey[0].key + '&callback=initMap';
 document.getElementsByTagName('body')[0].appendChild(script);//appending to the body of index html
 
+// date picker
 
+$(function() {
+	 $( "#startDate" ).datepicker({
+		 minDate : new Date(),
+		 dateFormat : 'yy-mm-dd',
+		 changeMonth : true,
+		 maxDate : '+1y',
+		 onSelect : function(date){
+			 var selectDate = new Date(date);
+			 var msecsInADay = 86400000;
+			 var stDate = new Date(selectDate.getTime() + msecsInADay);
+		 }
+
+});
+	 $( "#endDate" ).datepicker('option', 'minDate', stDate);
+	 var enDate = new Date(selectDate.getTime() + 15 * msecsInADay);
+	 $('#endDate').datepicker('option', 'maxDate', enDate);
+	 ;
+function dateDiff(){
+	var start = $(startDate).datepicker('getDate');
+	var end = $(endDate).datepicker('getDate');
+	var days = (end - start)/1000/60/60/24;
+}
+
+$('#calcDate').click(function(){
+	dateDiff();
+})
+
+//------------------- FIX THIS IT IS SHIT----------------
+
+// $('#startDate').datepicker
 
 
 
 $(document).ready(function(){
 	  $('#area').change(function(){
-			console.log($('#area').val());
-	    // var area=document.getElementById('area').value;
-	    // console.log(area);
-			// map.panTo({lat : -41.131073,lng : 175.067505});
+		console.log($('#area').val());
 
 			for (var i = 0; i < brewries.length; i++) {
 				if ($('#area').val() === brewries[i].area) {
@@ -26,10 +55,6 @@ $(document).ready(function(){
 			}
 	  });
 	});
-
-
-
-
 //loop through array and find first instance of matching selection
 //break the loop as soon as it finds it
 
@@ -118,60 +143,51 @@ var brewries = [
 	}
 ];
 
-// for (var i = 0; i < brewries.length; i++) {
-// 	// var name = brewries[i].name;
-// 	// var test = {
-// 	// 	lat: brewries[i].lat,
-// 	// 	lng: brewries[i].long};
-// 	//
-// 	// console.log(name);
-// 	// console.log(test);
-// }
 
-var map;
 function initMap(){
+//the initMap function is kind of link generating a a window where all the map content is contained
 	var center;
+	var oldwindow;
 	 //center coordinates
 		center = {lat: -41.2911449, lng: 174.7814447};
 	 //map object
 	 	map = new google.maps.Map(
-			 document.getElementById('mapContain'), {
-			 zoom:12,
-			 center: center,
+			document.getElementById('mapContain'), {
+			zoom:12,
+			center: center,
 		 });
-	 for(i=0; i<brewries.length;i++){
-		 // Adds all of the markers from the brewery array
-		 addMarkers(brewries[i]);
-	 }
+		 for(i=0; i<brewries.length;i++){
+			// Adds all of the markers from the brewery array
+			addMarkers(brewries[i]);
+		 }
 	 function addMarkers(props){
- 		// Creates the marker variable
- 		var marker = new google.maps.Marker({
- 			// Positions the marker to where the brewery is located
- 			position: props.longAndLat,
- 			// adds the marker to the specific map
- 			map: map,
- 			// Gives the map a title
- 			title: props.name,
- 			// Adds the card to be displayed when an icon is clicked
- 			content: props.openCard
- 		});
-		if(props.name){
-			var infoWindow = new google.maps.InfoWindow({
+ 			// Creates the marker variable
+	 		var marker = new google.maps.Marker({
+				animation: google.maps.Animation.BOUNCE,
+	 			// Positions the marker to where the brewery is located
+	 			position: props.longAndLat,
+	 			// adds the marker to the specific map
+	 			map: map,
+	 			// Gives the map a title
+	 			// title: props.name,
+	 			// Adds the card to be displayed when an icon is clicked
+	 			// content: props.openCard
+	 		});
+			if(props.name){
+				var infoWindow = new google.maps.InfoWindow({
 				// Takes card of icon that has been clicked
 				content: props.name,
-			});
-			// On click, diplays the selected card
-			marker.addListener('click', function(){
-				// Works out which map and marker was clicked
-				infoWindow.open(map, marker)
-			});
+				});
+				// On click, diplays the selected card
+				marker.addListener('click', function(){
+					if (oldwindow){
+						oldwindow.close();
+					};
+					// Works out which map and marker was clicked
+					infoWindow.open(map, marker)
+					oldwindow=infoWindow;
+					console.log(oldwindow);
+				});
 		}
 	}
 };
-
-
-
-// var wellyCity = document.getElementById('wellCityClick').value;
-// var eastSub = document.getElementById('eastSubClick').value;
-// var lowHutt = document.getElementById('lowHuttClick').value;
-// var upHutt = document.getElementById('upHuttClick').value;

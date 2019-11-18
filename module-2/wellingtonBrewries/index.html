@@ -4,9 +4,11 @@
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+		<!-- jquery ui css-->
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css" integrity="sha256-sEGfrwMkIjbgTBwGLVK38BG/XwIiNC/EAG9Rzsfda6A=" crossorigin="anonymous" />
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<!-- my css -->
 		<link rel="stylesheet" href="css/stylesheet.css">
 
 		<title>BEER</title>
@@ -17,29 +19,50 @@
 			<h1 class="display-4 text-center"></h1>
 		</div>
 
+
+
 		<div class="container bg-light">
 			<div class="">
-				<label for="area">Select Area</label>
+				<label for="startDate">Start Date</label>
+				<input type="text" id="startDate" size="30">
+
+				<label for="endDate">End Date</label>
+				<input type="text" id="endDate" size="30">
+
+				<input type="button" id="calcDate" class="btn btn-sm btn-primary" value="Calculate Date">
+			</div>
+			<div class="">
+				<label for="dateResult">Number of days chosen</label>
+				<input type="text" id="dateResult" class="form-control">
+			</div>
+
+
+
+
+
+			<div class="">
 				<select id="area" class="" name="">
+					<option>- Select Area -</option>
 					<option class="clicking" id="wellCityClick" value="Wellington-City">Wellington City</option>
 					<option class="clicking" id="eastSubClick" value="Eastern-Suburbs">Eastern Suburbs</option>
 					<option class="clicking" id="lowHuttClick" value="Lower-Hutt">Lower Hutt</option>
 					<option class="clicking" id="upHuttClick" value="Upper-Hutt">Upper Hutt</option>
 				</select>
-
 			</div>
-			<div id="mapContain">
-
-
-			</div>
+			<div id="mapContain"></div>
 
 		</div>
 
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<!--bootstrap js-->
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-		<!-- Optional JavaScript -->
+		<!-- jqueryui js -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha256-KM512VNnjElC30ehFwehXjx1YCHPiQkOPmqnrWtpccM=" crossorigin="anonymous"></script>
+		<!-- My JavaScript -->
 		<script src="js/config.json"></script>
 		<script src="js/script.js"></script>
 	</body>
