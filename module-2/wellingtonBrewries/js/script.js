@@ -10,34 +10,43 @@ document.getElementsByTagName('body')[0].appendChild(script);//appending to the 
 
 // date picker
 
-$(function() {
-	 $( "#startDate" ).datepicker({
-		 minDate : new Date(),
-		 dateFormat : 'yy-mm-dd',
-		 changeMonth : true,
-		 maxDate : '+1y',
-		 onSelect : function(date){
-			 var selectDate = new Date(date);
-			 var msecsInADay = 86400000;
-			 var stDate = new Date(selectDate.getTime() + msecsInADay);
-		 }
 
+
+
+
+$('#startDate').datepicker({
+ dateFormat: 'yy-mm-dd',
+ changeMonth: true,
+ minDate: new Date(),
+ maxDate: '+1y',
+ onSelect: function(date){
+   var selectDate = new Date(date);
+   var msecsInADay = 86400000; // number of milliseconds in a day
+   var stDate = new Date(selectDate.getTime() + msecsInADay); //considering the time of the day when the site is used
+   //set minimm date of endDatePicker after selecteddate of startDate
+   $('#endDate').datepicker('option', 'minDate', stDate);
+   var enDate = new Date(selectDate.getTime() + 15 * msecsInADay);
+   $('#endDate').datepicker('option', 'maxdate', enDate);
+ }
 });
-	 $( "#endDate" ).datepicker('option', 'minDate', stDate);
-	 var enDate = new Date(selectDate.getTime() + 15 * msecsInADay);
-	 $('#endDate').datepicker('option', 'maxDate', enDate);
-	 ;
+$('#endDate').datepicker({
+ dateFormat: 'yy-mm-dd',
+ changeMonth: true
+});
 function dateDiff(){
-	var start = $(startDate).datepicker('getDate');
-	var end = $(endDate).datepicker('getDate');
-	var days = (end - start)/1000/60/60/24;
+ // console.log(calc);
+ var start = $(startDate).datepicker('getDate');
+ var end = $(endDate).datepicker('getDate');
+ // convert milliseconds to seconds then to seconds, then to minutes, then to hours
+ var days = (end - start)/1000/60/60/24; //user readable format
+ document.getElementById('dateResult').value = days;
+ return;
 }
-
 $('#calcDate').click(function(){
-	dateDiff();
-})
+ console.log('date');
+ dateDiff();
+});
 
-//------------------- FIX THIS IT IS SHIT----------------
 
 // $('#startDate').datepicker
 
@@ -155,19 +164,334 @@ function initMap(){
 			document.getElementById('mapContain'), {
 			zoom:12,
 			center: center,
+			// mapTypeId: 'hybrid',
+			styles : [
+  {
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#ebe3cd"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#523735"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#f5f1e6"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#c9b2a6"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#dcd2be"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#ae9e90"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.neighborhood",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape.natural",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dfd2ae"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dfd2ae"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#93817c"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.business",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#a5b076"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#447530"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#f5f1e6"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#fdfcf8"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#f8c967"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#e9bc62"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway.controlled_access",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#e98d58"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway.controlled_access",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#db8555"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#806b63"
+      }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dfd2ae"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#8f7d77"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#ebe3cd"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.station",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dfd2ae"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#b9d3c2"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#92998d"
+      }
+    ]
+  }
+]
 		 });
+
 		 for(i=0; i<brewries.length;i++){
 			// Adds all of the markers from the brewery array
 			addMarkers(brewries[i]);
 		 }
 	 function addMarkers(props){
+		 //a variable to get a specific icon from the internet
+		 var icons = 'https://maps.google.com/mapfiles/kml/shapes/bars.png'
  			// Creates the marker variable
 	 		var marker = new google.maps.Marker({
-				animation: google.maps.Animation.BOUNCE,
+				animation: google.maps.Animation.DROP,
 	 			// Positions the marker to where the brewery is located
 	 			position: props.longAndLat,
 	 			// adds the marker to the specific map
 	 			map: map,
+				//icon is an option from the initmap function that calls the icons
+				// icon: icons,
+
 	 			// Gives the map a title
 	 			// title: props.name,
 	 			// Adds the card to be displayed when an icon is clicked
